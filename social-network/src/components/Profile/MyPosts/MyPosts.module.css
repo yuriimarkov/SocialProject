@@ -1,0 +1,21 @@
+.posts {
+    padding: 20px;
+}
+
+.posts__heading {
+    color: white;
+  }
+
+.posts__input {
+    display: flex;
+    flex-direction: column;
+    gap: 20px; 
+}
+
+.input__textarea {
+    width: 150px;
+}
+
+.input__button {
+    width: 70px;
+}

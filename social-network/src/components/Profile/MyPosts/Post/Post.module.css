@@ -1,0 +1,31 @@
+.posts__item {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  padding-top: 20px;
+}
+
+
+.item__img {
+  width: 50px;
+  height: 50px;
+  background-color: orange;
+  border-radius: 50%;
+  border: 1px solid ;
+}
+
+.item__text {
+  color: white;
+}
+
+.item__like {
+  width: 20px;
+  height: 20px;
+  background-color: lightcoral;
+  border-radius: 50%;
+  text-align: center;
+  padding: 5px;
+  color: white;
+}
+
+

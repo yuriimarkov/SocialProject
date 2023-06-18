@@ -1,0 +1,23 @@
+.nav {
+  grid-area: nav;
+  background-color: coral;
+}
+
+.nav__list {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+
+
+.item__link {
+  color:white;
+  font-size: 16px;
+  cursor: pointer;
+} 
+
+.active {
+  color: gold;
+}

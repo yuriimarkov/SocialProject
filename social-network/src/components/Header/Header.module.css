@@ -1,0 +1,20 @@
+.header {
+  grid-area: header;
+  background-color: chartreuse;
+}
+
+.header__container {
+  display: flex;
+  align-items: center;
+  padding: 20px;
+}
+
+.header__logo {
+  display: flex;
+  width: 25px;
+  height: 25px;
+}
+
+.header__logo img {
+  width: 100%;
+}

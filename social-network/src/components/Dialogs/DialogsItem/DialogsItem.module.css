@@ -1,0 +1,17 @@
+
+
+.dialogs__items {
+    padding: 10px;
+}
+
+.items__list {
+
+}
+
+.list__item {
+    color: white;
+}
+
+.active{
+    color: gold;
+}
