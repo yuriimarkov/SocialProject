@@ -1,30 +1,8 @@
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = () => {
-  const postData = [
-    {
-      id: 1,
-      message: "Hi, how are you?",
-      likesCount: 23,
-    },
-    {
-      id: 2,
-      message: "Hi, fine",
-      likesCount: 3,
-    },
-    {
-      id: 3,
-      message: "asdasdasda",
-      likesCount: 13,
-    },
-    {
-      id: 4,
-      message: "asdasdasda",
-      likesCount: 43,
-    },
-  ];
-
+const MyPosts = ({postData}) => {
+  
   return (
     <div className={styles.posts}>
       <h2 className={styles.posts__heading}>My posts</h2>

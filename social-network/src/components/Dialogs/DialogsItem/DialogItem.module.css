@@ -1,5 +1,4 @@
 
-
 .dialogs__items {
     padding: 10px;
 }
@@ -8,7 +7,7 @@
 
 }
 
-.list__item {
+.list__item a {
     color: white;
 }
 
