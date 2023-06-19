@@ -3,7 +3,7 @@ import React from "react";
 import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
-const MyPosts = ({ postData, addPost}) => {
+const MyPosts = ({ postData, newPostText, updateNewPostText, addPost}) => {
   const post = postData.map((post) => (
     <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
@@ -11,9 +11,12 @@ const MyPosts = ({ postData, addPost}) => {
   const newPostElement = React.createRef();
 
   const handleAddPost = () => {
+    addPost();
+  }
+
+  const onPostChange = () => {
     const text = newPostElement.current.value;
-    addPost(text);
-    newPostElement.current.value = '';
+    updateNewPostText(text);
   }
 
   return (
@@ -21,7 +24,7 @@ const MyPosts = ({ postData, addPost}) => {
       <h2 className={styles.posts__heading}>My posts</h2>
       <div className={styles.posts__content}>
         <div className={styles.content__area}>
-          <textarea ref={newPostElement} name="" id=""></textarea>
+          <textarea ref={newPostElement} value={newPostText} onChange={onPostChange}/>
         </div>
         <div className={styles.content__button}>
           <button className={styles.button} onClick={handleAddPost}>
