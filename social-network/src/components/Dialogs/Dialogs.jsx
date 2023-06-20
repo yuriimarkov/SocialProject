@@ -3,12 +3,18 @@ import styles from "./Dialogs.module.css";
 
 import MessagesItem from "./MessagesItem/MessagesItem";
 import DialogItem from "./DialogsItem/DialogItem";
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/state";
 
-const Dialogs = ({ state }) => {
+const Dialogs = ({ state, dispatch, newPostText }) => {
   const newMessageElement = React.useRef();
-  const addMessage = () => {
+
+  const handleAddMessage = () => {
+    dispatch(addMessageActionCreator());
+  }
+  
+  const onMessageChange = () => {
     const text = newMessageElement.current.value;
-    alert(text);
+    dispatch(updateNewMessageTextActionCreator(text));
   };
   return (
     <div className={styles.dialogs}>
@@ -25,10 +31,10 @@ const Dialogs = ({ state }) => {
         ))}
         <div className={styles.messages__content}>
           <div className={styles.content__area}>
-            <textarea ref={newMessageElement} name="" id=""></textarea>
+            <textarea ref={newMessageElement} value={newPostText} onChange={onMessageChange} />
           </div>
           <div className={styles.content__button}>
-            <button onClick={addMessage}>Add message</button>
+            <button onClick={handleAddMessage}>Add message</button>
           </div>
         </div>
       </div>
