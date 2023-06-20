@@ -11,7 +11,7 @@ import News from "./components/News/News";
 import Music from "./components/Music/Music";
 import Settings from "./components/Settings/Settings";
 
-const App = ({state, addPost, updateNewPostText}) => {
+const App = ({state, dispatch}) => {
 
   return (
       <div className="app__wrapper">
@@ -19,7 +19,7 @@ const App = ({state, addPost, updateNewPostText}) => {
         <NavBar />
         <div className="app__wrapper-content">
           <Routes>
-            <Route path="/profile" element={<Profile state={state.profilePage} addPost={addPost} updateNewPostText={updateNewPostText}/> } />
+            <Route path="/profile" element={<Profile state={state.profilePage} dispatch={dispatch}/> } />
             <Route path="/dialogs/*" element={<Dialogs state={state.dialogsPage} />} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
