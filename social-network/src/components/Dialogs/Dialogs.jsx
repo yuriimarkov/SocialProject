@@ -3,7 +3,7 @@ import styles from "./Dialogs.module.css";
 
 import MessagesItem from "./MessagesItem/MessagesItem";
 import DialogItem from "./DialogsItem/DialogItem";
-import { addMessageActionCreator, updateNewMessageTextActionCreator } from "../../redux/state";
+import { addMessageActionCreator, updateNewMessageTextActionCreator } from './../../redux/dialogsReducer';
 
 const Dialogs = ({ state, dispatch, newPostText }) => {
   const newMessageElement = React.useRef();
