@@ -1,12 +1,12 @@
 import ProfileInfo from './ProfileInfo/ProfileInfo'
-import MyPosts from "./MyPosts/MyPosts";
 import styles from "./Profile.module.css";
+import MyPostsContainer from './MyPosts/MyPostsContainer';
 
-const Profile = ({state, dispatch}) => {
+const Profile = ({store}) => {
   return (
     <div>
       <ProfileInfo />
-      <MyPosts postData={state.postData} newPostText={state.newPostText} dispatch={dispatch}/>
+      <MyPostsContainer store={store}/>
     </div>
   );
 };
