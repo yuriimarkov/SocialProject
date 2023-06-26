@@ -3,8 +3,8 @@ import styles from "./MyPosts.module.css";
 import Post from "./Post/Post";
 
 
-const MyPosts = ({ postData, newPostText, addPost, getPostChange}) => {
-  const post = postData.map((post) => (
+const MyPosts = ({ state, addPost, getPostChange}) => {
+  const post = state.postData.map((post) => (
     <Post key={post.id} message={post.message} likesCount={post.likesCount} />
   ));
   
@@ -23,7 +23,7 @@ const MyPosts = ({ postData, newPostText, addPost, getPostChange}) => {
       <h2 className={styles.posts__heading}>My posts</h2>
       <div className={styles.posts__content}>
         <div className={styles.content__area}>
-          <textarea  value={newPostText} onChange={getTextareaValues}/>
+          <textarea  value={state.newPostText} onChange={getTextareaValues}/>
         </div>
         <div className={styles.content__button}>
           <button className={styles.button} onClick={handleAddPost}>

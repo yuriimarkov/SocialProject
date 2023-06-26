@@ -48,7 +48,4 @@ const store = {
   },
 };
 
-
-window._store = store;
-
 export default store;

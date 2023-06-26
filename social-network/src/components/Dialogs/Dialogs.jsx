@@ -4,8 +4,7 @@ import styles from "./Dialogs.module.css";
 import MessagesItem from "./MessagesItem/MessagesItem";
 import DialogItem from "./DialogsItem/DialogItem";
 
-const Dialogs = ({ state, newMessageText, addMessage, getPostChange }) => {
-
+const Dialogs = ({ state,addMessage, getPostChange }) => {
   const handleAddMessage = () => {
     addMessage();
   }
@@ -28,7 +27,7 @@ const Dialogs = ({ state, newMessageText, addMessage, getPostChange }) => {
         ))}
         <div className={styles.messages__content}>
           <div className={styles.content__area}>
-            <textarea  value={newMessageText} onChange={getTextareaValues} />
+            <textarea  value={state.newMessageText} onChange={getTextareaValues} />
           </div>
           <div className={styles.content__button}>
             <button onClick={handleAddMessage}>Add message</button>

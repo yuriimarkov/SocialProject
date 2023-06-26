@@ -9,7 +9,9 @@ import Profile from "./components/Profile/Profile";
 import DialogsContainer from "./components/Dialogs/DialogsContainer";
 import News from "./components/News/News";
 import Music from "./components/Music/Music";
+import UsersContainer from "./components/Users/UsersContainer";
 import Settings from "./components/Settings/Settings";
+
 
 const App = ({store}) => {
   return (
@@ -18,10 +20,11 @@ const App = ({store}) => {
         <NavBar />
         <div className="app__wrapper-content">
           <Routes>
-            <Route path="/profile" element={<Profile store={store}/>} />
-            <Route path="/dialogs/*" element={<DialogsContainer store={store}/>} />
+            <Route path="/profile" element={<Profile />} />
+            <Route path="/dialogs/*" element={<DialogsContainer/>} />
             <Route path="/news" element={<News />} />
             <Route path="/music" element={<Music />} />
+            <Route path="/users" element={<UsersContainer />} />
             <Route path="/settings" element={<Settings />} />
           </Routes>
         </div>
