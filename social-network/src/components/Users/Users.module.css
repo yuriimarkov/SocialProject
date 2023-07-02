@@ -11,3 +11,22 @@
     height: 100%;
     object-fit: cover;
 }
+
+.users__pagination {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+.selectedPage {
+    font-weight: bold;
+    border: 1px solid;
+    border-radius: 50%;
+    padding: 5px 10px;
+}
+
+.pagination__item {
+    color: white;
+    cursor: pointer;
+}
+
