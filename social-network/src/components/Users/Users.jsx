@@ -1,22 +1,38 @@
 import React from "react";
 import userPhoto from "../../assets/images/ava.png";
 import styles from "./Users.module.css";
-import axios from "axios";
 
-
-
-
-const Users = ({ usersData, follow, unfollow, setUsers }) => {
-  if (usersData.length === 0) {
-    axios
-      .get("https://social-network.samuraijs.com/api/1.0/users")
-      .then((response) => {
-       setUsers([...new Set(response.data.items)]);
-      });
+const Users = ({
+  usersData,
+  follow,
+  unfollow,
+  currentPage,
+  totalUsersCount,
+  pageSize,
+  onPageChanged,
+}) => {
+  const pagesCount = Math.ceil(totalUsersCount / pageSize) / 100;
+  const pages = [];
+  for (let i = 1; i <= pagesCount; i++) {
+    pages.push(i);
   }
 
   return (
     <div className={styles.users}>
+      <div className={styles.users__pagination}>
+        {pages.map((page) => {
+          return (
+            <span  key={page}
+              className={(currentPage === page ? styles.selectedPage : styles.pagination__item )}
+              onClick={() => {
+                onPageChanged(page);
+              }}
+            >
+              {page}
+            </span>
+          );
+        })}
+      </div>
       {usersData.map((user) => (
         <div key={user.id}>
           <span>
