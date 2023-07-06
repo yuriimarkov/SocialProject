@@ -2,12 +2,12 @@ import React from "react";
 import axios from "axios";
 import { connect } from "react-redux";
 import {
-  followAC,
-  setCurrentPageAC,
-  setTotalUsersCountAC,
-  setUsersAC,
-  toggleIsLoadingAC,
-  unfollowAC,
+  follow,
+  setCurrentPage,
+  setTotalUsersCount,
+  setUsers,
+  toggleIsLoading,
+  unfollow,
 } from "./../../redux/usersReducer";
 
 import Users from "./Users";
@@ -23,7 +23,7 @@ class UsersContainer extends React.Component {
       .then((response) => {
         this.props.toggleIsLoading(false);
         this.props.setUsers([...new Set(response.data.items)]);
-        this.props.setUsersTotalCount(response.data.totalCount);
+        this.props.setTotalUsersCount(response.data.totalCount);
       });
   }
   onPageChanged = (pageNumber) => {
@@ -70,27 +70,27 @@ const mapStateToProps = (state) => {
   };
 };
 
-const mapDispatchToProps = (dispatch) => {
-  return {
-    follow: (userId) => {
-      dispatch(followAC(userId));
-    },
-    unfollow: (userId) => {
-      dispatch(unfollowAC(userId));
-    },
-    setUsers: (usersData) => {
-      dispatch(setUsersAC(usersData));
-    },
-    setCurrentPage: (pageNumber) => {
-      dispatch(setCurrentPageAC(pageNumber));
-    },
-    setUsersTotalCount: (totalCount) => {
-      dispatch(setTotalUsersCountAC(totalCount));
-    },
-    toggleIsLoading: (isLoading) => {
-      dispatch(toggleIsLoadingAC(isLoading));
-    },
-  };
-};
+// const mapDispatchToProps = (dispatch) => {
+//   return {
+//     follow: (userId) => {
+//       dispatch(followAC(userId));
+//     },
+//     unfollow: (userId) => {
+//       dispatch(unfollowAC(userId));
+//     },
+//     setUsers: (usersData) => {
+//       dispatch(setUsersAC(usersData));
+//     },
+//     setCurrentPage: (pageNumber) => {
+//       dispatch(setCurrentPageAC(pageNumber));
+//     },
+//     setUsersTotalCount: (totalCount) => {
+//       dispatch(setTotalUsersCountAC(totalCount));
+//     },
+//     toggleIsLoading: (isLoading) => {
+//       dispatch(toggleIsLoadingAC(isLoading));
+//     },
+//   };
+// };
 
-export default connect(mapStateToProps, mapDispatchToProps)(UsersContainer);
+export default connect(mapStateToProps, {follow,unfollow,setUsers,setCurrentPage, setTotalUsersCount ,toggleIsLoading})(UsersContainer);
