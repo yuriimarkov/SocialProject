@@ -1,4 +1,5 @@
 import React from "react";
+import { NavLink } from "react-router-dom";
 import userPhoto from "../../assets/images/ava.png";
 import styles from "./Users.module.css";
 
@@ -22,8 +23,13 @@ const Users = ({
       <div className={styles.users__pagination}>
         {pages.map((page) => {
           return (
-            <span  key={page}
-              className={(currentPage === page ? styles.selectedPage : styles.pagination__item )}
+            <span
+              key={page}
+              className={
+                currentPage === page
+                  ? styles.selectedPage
+                  : styles.pagination__item
+              }
               onClick={() => {
                 onPageChanged(page);
               }}
@@ -37,10 +43,14 @@ const Users = ({
         <div key={user.id}>
           <span>
             <div className={styles.image__holder}>
-              <img
-                src={user.photos.small != null ? user.photos.small : userPhoto}
-                alt={user.name}
-              />
+              <NavLink to={`/profile/${user.id }`}>
+                <img
+                  src={
+                    user.photos.small != null ? user.photos.small : userPhoto
+                  }
+                  alt={user.name}
+                />
+              </NavLink>
             </div>
             <div>
               {user.followed ? (
