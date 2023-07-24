@@ -1,10 +1,11 @@
 import React from "react";
+import { Navigate } from "react-router-dom";
 import styles from "./Dialogs.module.css";
 
 import MessagesItem from "./MessagesItem/MessagesItem";
 import DialogItem from "./DialogsItem/DialogItem";
 
-const Dialogs = ({ state,addMessage, getPostChange }) => {
+const Dialogs = ({ state,addMessage, getPostChange, isAuth }) => {
   const handleAddMessage = () => {
     addMessage();
   }
@@ -12,6 +13,7 @@ const Dialogs = ({ state,addMessage, getPostChange }) => {
     const text = e.target.value;
     getPostChange(text);
     }
+    if (!isAuth)  return <Navigate to={'/login'} />
   return (
     <div className={styles.dialogs}>
       <div className={styles.dialogs__items}>
